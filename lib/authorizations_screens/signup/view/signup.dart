@@ -137,7 +137,7 @@ class _SignUpState extends State<SignUp> {
                               child: Row(
                                 children: const [
                                   Text(
-                                    'Phone number',
+                                    'phone number',
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         fontFamily: 'MazzardH-Regular'),
