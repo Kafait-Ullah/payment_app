@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payment_app/authorizations_screens/home/view/dashboard.dart';
-import 'package:payment_app/authorizations_screens/home/view/home.dart';
 import 'package:payment_app/authorizations_screens/signup/view/signup.dart';
 import '../../../Component/raised_button.dart';
 

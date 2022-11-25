@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:payment_app/Component/otp_input.dart';
 import 'package:payment_app/Component/pad_button.dart';
@@ -13,7 +11,7 @@ class AppPassword extends StatefulWidget {
 }
 
 class _AccountConfirmState extends State<AppPassword> {
-  var inputValue = '';
+  List<String> inputValue = [];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +26,7 @@ class _AccountConfirmState extends State<AppPassword> {
                 child: Align(
                   child: Text(
                     textAlign: TextAlign.center,
-                    'Application Password',
+                    'Application password',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -72,132 +70,89 @@ class _AccountConfirmState extends State<AppPassword> {
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text(
-                            "Please, enter the OTP code sent to\n             +994 (50) *** ** 67:",
-                            style: TextStyle(
-                                fontSize: 17, fontFamily: 'MazzardH-Regular'),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Text(
+                              "Please, set password for the application\n               for security purposes:",
+                              style: TextStyle(
+                                  fontSize: 18, fontFamily: 'MazzardH-Regular'),
+                            ),
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              // ignore: prefer_const_literals_to_create_immutables
-                              children: [
-                                OtpInput(
-                                  text: "1",
-                                ),
-                                OtpInput(
-                                  text: "2",
-                                ),
-                                OtpInput(
-                                  text: "5",
-                                ),
-                                OtpInput(
-                                  text: "6",
-                                ),
-                              ],
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: List.generate(4, (index) {
+                              return OtpInput(
+                                text: inputValue.length > index
+                                    ? inputValue[index]
+                                    : "",
+                              );
+                            }),
+                          ),
+                          Row(
+                            children: List.generate(
+                              3,
+                              (index) => PadButton(
+                                title: (index + 1).toString(),
+                                onPress: () {
+                                  setState(() {
+                                    if (inputValue.length < 4) {
+                                      inputValue.add((index + 1).toString());
+                                    }
+                                  });
+                                },
+                              ),
                             ),
                           ),
                           Row(
-                            children: [
-                              PadButton(
-                                title: '1',
+                            children: List.generate(
+                              3,
+                              (index) => PadButton(
+                                title: (index + 4).toString(),
                                 onPress: () {
-                                  inputValue = '1';
-                                  setState(() {});
+                                  setState(() {
+                                    if (inputValue.length < 4) {
+                                      inputValue.add((index + 4).toString());
+                                    }
+                                  });
                                 },
                               ),
-                              PadButton(
-                                title: '2',
-                                onPress: () {
-                                  inputValue = '2';
-                                  setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                title: '3',
-                                onPress: () {
-                                  inputValue = '3';
-                                  setState(() {});
-                                },
-                              ),
-                            ],
+                            ),
                           ),
                           Row(
-                            children: [
-                              PadButton(
-                                title: '4',
+                            children: List.generate(
+                              3,
+                              (index) => PadButton(
+                                title: (index + 7).toString(),
                                 onPress: () {
-                                  inputValue = '4';
-                                  setState(() {});
+                                  setState(() {
+                                    if (inputValue.length < 4) {
+                                      inputValue.add((index + 7).toString());
+                                    }
+                                  });
                                 },
                               ),
-                              PadButton(
-                                title: '5',
-                                onPress: () {
-                                  inputValue = '5';
-                                  setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                title: '6',
-                                onPress: () {
-                                  inputValue = '6';
-                                  setState(() {});
-                                },
-                              ),
-                            ],
+                            ),
                           ),
-                          Row(
-                            children: [
-                              PadButton(
-                                title: '7',
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 130, left: 130),
+                            child: Row(
+                                children: List.generate(
+                              1,
+                              (index) => PadButton(
+                                title: (index + 0).toString(),
                                 onPress: () {
-                                  inputValue = '7';
-                                  setState(() {});
+                                  setState(() {
+                                    if (inputValue.length < 2) {
+                                      inputValue.add((index + 0).toString());
+                                    }
+                                  });
                                 },
                               ),
-                              PadButton(
-                                title: '8',
-                                onPress: () {
-                                  inputValue = '8';
-                                  setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                title: '9',
-                                onPress: () {
-                                  inputValue = '9';
-                                  setState(() {});
-                                },
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              PadButton(
-                                title: '',
-                                onPress: () {
-                                  inputValue = '';
-                                  setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                title: '0',
-                                onPress: () {
-                                  inputValue = '0';
-                                  setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                sicon: (Icons.backspace),
-                                color: Colors.red,
-                                onPress: () {},
-                              ),
-                            ],
+                            )),
                           ),
                           TextButton(
                               onPressed: () {
@@ -207,7 +162,7 @@ class _AccountConfirmState extends State<AppPassword> {
                                         builder: (context) => const Login()));
                               },
                               child: const Text(
-                                'Continue with password',
+                                'Continue without password',
                                 style: TextStyle(
                                     color: Color(0xff474A56),
                                     fontWeight: FontWeight.w800,

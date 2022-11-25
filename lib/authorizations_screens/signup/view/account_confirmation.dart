@@ -72,9 +72,9 @@ class _AccountConfirmState extends State<AccountConfirm> {
                             height: 10,
                           ),
                           const Text(
-                            "Please, enter the OTP code sent to\n             +994 (50) *** ** 67:",
+                            "Please, enter the OTP code sent to\n            +994 (50) *** ** 67:",
                             style: TextStyle(
-                                fontSize: 17, fontFamily: 'MazzardH-Regular'),
+                                fontSize: 18, fontFamily: 'MazzardH-Regular'),
                           ),
                           const SizedBox(
                             height: 20,
@@ -105,83 +105,52 @@ class _AccountConfirmState extends State<AccountConfirm> {
                             ),
                           ),
                           Row(
-                            children: [
-                              PadButton(
-                                title: '4',
+                            children: List.generate(
+                              3,
+                              (index) => PadButton(
+                                title: (index + 4).toString(),
                                 onPress: () {
-                                  // inputValue = '4';
-                                  // setState(() {});
+                                  setState(() {
+                                    if (inputValue.length < 4) {
+                                      inputValue.add((index + 4).toString());
+                                    }
+                                  });
                                 },
                               ),
-                              PadButton(
-                                title: '5',
-                                onPress: () {
-                                  // inputValue = '5';
-                                  // setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                title: '6',
-                                onPress: () {
-                                  // inputValue = '6';
-                                  // setState(() {});
-                                },
-                              ),
-                            ],
+                            ),
                           ),
                           Row(
-                            children: [
-                              PadButton(
-                                title: '7',
+                            children: List.generate(
+                              3,
+                              (index) => PadButton(
+                                title: (index + 7).toString(),
                                 onPress: () {
-                                  // inputValue = '7';
-                                  // setState(() {});
+                                  setState(() {
+                                    if (inputValue.length < 4) {
+                                      inputValue.add((index + 7).toString());
+                                    }
+                                  });
                                 },
                               ),
-                              PadButton(
-                                title: '8',
-                                onPress: () {
-                                  // inputValue = '8';
-                                  // setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                title: '9',
-                                onPress: () {
-                                  // inputValue = '9';
-                                  // setState(() {});
-                                },
-                              ),
-                            ],
+                            ),
                           ),
-                          Row(
-                            children: [
-                              PadButton(
-                                title: '',
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 130, left: 130),
+                            child: Row(
+                                children: List.generate(
+                              1,
+                              (index) => PadButton(
+                                title: (index + 0).toString(),
                                 onPress: () {
-                                  // inputValue = '';
-                                  // setState(() {});
+                                  setState(() {
+                                    if (inputValue.length < 2) {
+                                      inputValue.add((index + 0).toString());
+                                    }
+                                  });
                                 },
                               ),
-                              PadButton(
-                                title: '0',
-                                onPress: () {
-                                  // inputValue = '0';
-                                  // setState(() {});
-                                },
-                              ),
-                              PadButton(
-                                sicon: (Icons.backspace),
-                                color: Colors.red,
-                                onPress: () {
-                                  if (inputValue.isNotEmpty) {
-                                    setState(() {
-                                      inputValue.removeLast();
-                                    });
-                                  }
-                                },
-                              ),
-                            ],
+                            )),
                           ),
                           TextButton(
                               onPressed: () {

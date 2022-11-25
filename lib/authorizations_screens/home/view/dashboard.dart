@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payment_app/authorizations_screens/home/view/home.dart';
 import 'package:payment_app/authorizations_screens/home/view/profile/view/notifications.dart';
@@ -20,19 +18,20 @@ class _DashboardViewState extends State<DashboardView> {
     FontAwesomeIcons.house,
     FontAwesomeIcons.moneyBill,
     FontAwesomeIcons.bell,
-    Icons.verified_user
+    FontAwesomeIcons.user,
   ];
-  List<String> bottomTitles = ["Home", "Payments", "Notifications", "Profile"];
+
+  List<String> barNames = ['Home', 'Payments', 'Notifications', 'Profile'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: _pageController,
         children: [
-          HomePage(),
+          const HomePage(),
           Container(),
-          Notifications(),
-          Profile(),
+          const Notifications(),
+          const Profile(),
         ],
         onPageChanged: (v) {
           setState(() {
@@ -59,9 +58,8 @@ class _DashboardViewState extends State<DashboardView> {
             bottomIcons.length,
             (index) => GestureDetector(
               onTap: () {
-                print(index);
                 _pageController.animateToPage(index,
-                    duration: Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
                 setState(() {
                   currentIndex = 0;
@@ -76,9 +74,18 @@ class _DashboardViewState extends State<DashboardView> {
                       onPressed: null,
                       icon: Icon(bottomIcons[index],
                           color: currentIndex == index
-                              ? Color(0xff273B4A)
-                              : Color(0xffC8D1E1))),
-                  Text(bottomTitles[index])
+                              ? const Color(0xff273B4A)
+                              : const Color(0xffC8D1E1))),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      barNames[index],
+                      style: const TextStyle(
+                          color: Color(0xffC8D1E1),
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'MazzardH-Regular'),
+                    ),
+                  )
                 ],
               ),
             ),

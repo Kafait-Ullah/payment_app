@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class OtpInput extends StatelessWidget {
-  // final TextEditingController controller;
-  // final bool autoFocus;
   final String text;
 
   const OtpInput({super.key, required this.text});
@@ -10,9 +8,26 @@ class OtpInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 50,
-        width: 60,
+        width: 70,
         decoration: BoxDecoration(
-            border: Border.all(), borderRadius: BorderRadius.circular(12)),
+            border: Border.all(), borderRadius: BorderRadius.circular(10)),
         child: Center(child: Text(text)));
   }
 }
+
+// import 'package:flutter/material.dart';
+
+// class OptInput extends StatelessWidget {
+//   const OptInput({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 30,
+//       width: 20,
+//       decoration: BoxDecoration(
+//           border: Border.all(),
+//           borderRadius: const BorderRadius.all(Radius.circular(10))),
+//     );
+//   }
+// }

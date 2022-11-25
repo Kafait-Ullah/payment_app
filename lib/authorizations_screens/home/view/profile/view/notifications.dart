@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:payment_app/authorizations_screens/home/view/home.dart';
-import 'package:payment_app/authorizations_screens/home/view/profile/view/languages.dart';
-import 'package:payment_app/authorizations_screens/home/view/profile/view/payment_methods.dart';
-import 'package:payment_app/authorizations_screens/home/view/profile/view/personal_details.dart';
-import 'package:payment_app/authorizations_screens/home/view/profile/view/profile.dart';
-import 'package:payment_app/authorizations_screens/login/view/onboarding.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({super.key});

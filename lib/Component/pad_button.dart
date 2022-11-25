@@ -22,7 +22,6 @@ class PadButton extends StatelessWidget {
           child: Container(
             height: 80,
             decoration: const BoxDecoration(
-              //color: Colors.amber,
               color: Color(0xffF8F8FA),
               shape: BoxShape.rectangle,
             ),

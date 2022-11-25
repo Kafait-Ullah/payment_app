@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payment_app/Component/raised_button.dart';
-
-import '../../pay_bills/view/add_new_card.dart';
 
 class Languages extends StatelessWidget {
   const Languages({super.key});
